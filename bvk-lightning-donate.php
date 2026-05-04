@@ -30,8 +30,9 @@ define( 'BVKLD_PATH', plugin_dir_path( __FILE__ ) );
 define( 'BVKLD_URL', plugin_dir_url( __FILE__ ) );
 define( 'BVKLD_FILE', __FILE__ );
 
-add_action( 'init', function() {
-	load_plugin_textdomain( 'bvk-lightning-donate', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+add_action( 'plugins_loaded', function() {
+	$locale = apply_filters( 'plugin_locale', determine_locale(), 'bvk-lightning-donate' );
+	load_textdomain( 'bvk-lightning-donate', plugin_dir_path( __FILE__ ) . 'languages/' . $locale . '.mo' );
 } );
 
 require_once BVKLD_PATH . 'includes/settings.php';
