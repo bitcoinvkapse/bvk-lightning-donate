@@ -30,6 +30,10 @@ define( 'BVKLD_PATH', plugin_dir_path( __FILE__ ) );
 define( 'BVKLD_URL', plugin_dir_url( __FILE__ ) );
 define( 'BVKLD_FILE', __FILE__ );
 
+add_action( 'init', function() {
+	load_plugin_textdomain( 'bvk-lightning-donate', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+} );
+
 require_once BVKLD_PATH . 'includes/settings.php';
 require_once BVKLD_PATH . 'includes/widget.php';
 
