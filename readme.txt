@@ -4,7 +4,7 @@ Tags: bitcoin, lightning, donate, lnurl, lightning-address
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -85,6 +85,10 @@ This plugin connects to an external Lightning wallet server configured in the pl
 
 == Changelog ==
 
+= 1.1.1 =
+* Added Czech (cs_CZ) translation.
+* Fixed translation loading to use absolute path for reliability.
+
 = 1.1.0 =
 * Pass post slug as LNURL-pay `comment` so recipients can attribute donations to a specific post (only when the recipient's LNURL service advertises `commentAllowed`).
 
@@ -97,6 +101,9 @@ This plugin connects to an external Lightning wallet server configured in the pl
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+Adds Czech translation and fixes translation loading. Recommended update.
 
 = 1.1.0 =
 New per-post attribution via LNURL comment. Backward compatible — wallets without comment support behave as before.

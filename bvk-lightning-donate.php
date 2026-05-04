@@ -3,7 +3,7 @@
  * Plugin Name:       BVK Lightning Donate
  * Plugin URI:        https://bitcoinvkapse.cz/bvk-lightning-donate/
  * Description:       Lightning Network donate widget zobrazující se pod články. Přijímej satoshi přímo z webu přes Lightning Address.
- * Version:           1.1.0
+ * Version:           1.1.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Tomáš Krause
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BVKLD_VERSION', '1.1.0' );
+define( 'BVKLD_VERSION', '1.1.1' );
 define( 'BVKLD_PATH', plugin_dir_path( __FILE__ ) );
 define( 'BVKLD_URL', plugin_dir_url( __FILE__ ) );
 define( 'BVKLD_FILE', __FILE__ );
