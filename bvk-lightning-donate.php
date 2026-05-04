@@ -123,13 +123,13 @@ function bvkld_enqueue_assets() {
 		'amounts'  => $amounts,
 		'pageSlug' => $post_slug ? $post_slug : '',
 		'i18n'    => array(
-			'copied'        => __( 'Zkopírováno', 'bvk-lightning-donate' ),
-			'copyFailed'    => __( 'Kopírování se nezdařilo', 'bvk-lightning-donate' ),
-			'errorGeneric'  => __( 'Nepodařilo se načíst platební údaje. Zkopíruj Lightning adresu a pošli ručně.', 'bvk-lightning-donate' ),
-			'errorAmount'   => __( 'Zadej platnou částku v sats', 'bvk-lightning-donate' ),
-			'errorRange'    => __( 'Částka je mimo povolený rozsah peněženky', 'bvk-lightning-donate' ),
-			'scanQR'        => __( 'Naskenuj QR mobilní Lightning peněženkou', 'bvk-lightning-donate' ),
-			'loading'       => __( 'Načítám…', 'bvk-lightning-donate' ),
+			'copied'        => __( 'Copied!', 'bvk-lightning-donate' ),
+			'copyFailed'    => __( 'Copy failed', 'bvk-lightning-donate' ),
+			'errorGeneric'  => __( 'Could not load payment details. Copy the Lightning address and send manually.', 'bvk-lightning-donate' ),
+			'errorAmount'   => __( 'Enter a valid amount in sats', 'bvk-lightning-donate' ),
+			'errorRange'    => __( 'Amount is outside the wallet\'s allowed range', 'bvk-lightning-donate' ),
+			'scanQR'        => __( 'Scan QR with your mobile Lightning wallet', 'bvk-lightning-donate' ),
+			'loading'       => __( 'Loading…', 'bvk-lightning-donate' ),
 		),
 	) );
 

@@ -1,0 +1,137 @@
+# Czech translation for BVK Lightning Donate
+# Copyright (C) 2024 Tomas Krause
+# This file is distributed under the MIT license.
+msgid ""
+msgstr ""
+"Project-Id-Version: BVK Lightning Donate 1.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bvk-lightning-donate\n"
+"POT-Creation-Date: 2026-05-04T00:00:00+00:00\n"
+"PO-Revision-Date: 2026-05-04T00:00:00+00:00\n"
+"Last-Translator: Tomas Krause\n"
+"Language-Team: Czech\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Domain: bvk-lightning-donate\n"
+
+msgid "Did you enjoy this article? Send some sats \xe2\x9a\xa1"
+msgstr "L\xc3\xadbil se ti \xc4\x8dl\xc3\xa1nek? Po\xc5\xa1li satoshi \xe2\x9a\xa1"
+
+msgid "No wallet? Download one here"
+msgstr "Nem\xc3\xa1\xc5\xa1 pen\xc4\x9b\xc5\xbeen\xc3\xadku? St\xc3\xa1hni si zde"
+
+msgid "Choose amount"
+msgstr "Zvol \xc4\x8d\xc3\xa1stku"
+
+msgid "Click \"Send via Lightning\""
+msgstr "Klikni na \xe2\x80\x9ePosl\xc3\xa1t p\xc5\x99es Lightning\xe2\x80\x9c"
+
+msgid "custom"
+msgstr "vlastn\xc3\xad"
+
+msgid "Enter amount in sats"
+msgstr "Zadej \xc4\x8d\xc3\xa1stku v sats"
+
+msgid "Send via Lightning"
+msgstr "Poslat p\xc5\x99es Lightning"
+
+msgid "Loading\xe2\x80\xa6"
+msgstr "Na\xc4\x8d\xc3\xadt\xc3\xa1m\xe2\x80\xa6"
+
+msgid "Scan QR with your mobile Lightning wallet"
+msgstr "Naskenuj QR mobiln\xc3\xad Lightning pen\xc4\x9b\xc5\xbeen\xc3\xadkou"
+
+msgid "Click to copy"
+msgstr "Klikni pro zkop\xc3\xadrov\xc3\xa1n\xc3\xad"
+
+msgid "or send directly to:"
+msgstr "nebo po\xc5\xa1li p\xc5\x99\xc3\xadmo na:"
+
+msgid "BVK Lightning Donate \xe2\x80\x93 Settings"
+msgstr "BVK Lightning Donate \xe2\x80\x93 Nastaven\xc3\xad"
+
+msgid "BVK Lightning Donate"
+msgstr "BVK Lightning Donate"
+
+msgid "You do not have permission to view this page."
+msgstr "Nem\xc3\xa1\xc5\xa1 opr\xc3\xa1vn\xc4\x9bn\xc3\xad k zobrazen\xc3\xad t\xc3\xa9to str\xc3\xa1nky."
+
+msgid "Invalid Lightning address format. Expected format: user@domain.com"
+msgstr "Neplatn\xc3\xbd form\xc3\xa1t Lightning adresy. O\xc4\x8dek\xc3\xa1v\xc3\xa1n form\xc3\xa1t u\xc5\xbeivatel@domena.cz"
+
+msgid "Enter at least one valid amount (positive number)."
+msgstr "Zadej alespo\xc5\x88 jednu platnou \xc4\x8d\xc3\xa1stku (kladn\xc3\xa9 \xc4\x8d\xc3\xadslo)."
+
+msgid "Widget active"
+msgstr "Widget aktivn\xc3\xad"
+
+msgid "Show widget on the site"
+msgstr "Zobrazovat widget na webu"
+
+msgid "Disabled until you configure the plugin. Check this to start showing the widget according to the settings below."
+msgstr "Vypnuto dokud plugin nenakonfiguruješ. Po zaškrtnutí se widget začne zobrazovat podle nastavení níže."
+
+msgid "Lightning address"
+msgstr "Lightning adresa"
+
+msgid "Format: user@wallet.com. What is %s?"
+msgstr "Form\xc3\xa1t: u\xc5\xbeivatel@pen\xc4\x9b\xc5\xbeenka.cz. Co je %s?"
+
+msgid "Preset amounts (sats)"
+msgstr "P\xc5\x99ednastavene \xc4\x8d\xc3\xa1stky (sats)"
+
+msgid "Comma-separated, e.g. 1000,5000,21000"
+msgstr "Odd\xc4\x9blen\xc3\xa9 \xc4\x8d\xc3\xa1rkou, nap\xc5\x99. 1000,5000,21000"
+
+msgid "Widget title"
+msgstr "Nadpis widgetu"
+
+msgid "Subtitle"
+msgstr "Podtitulek"
+
+msgid "Display below"
+msgstr "Zobrazit pod"
+
+msgid "Content type below which the widget will be automatically added."
+msgstr "Typ obsahu, pod kter\xc3\xbd se widget automaticky p\xc5\x99id\xc3\xa1."
+
+msgid "Primary color"
+msgstr "Prim\xc3\xa1rn\xc3\xad barva"
+
+msgid "Widget background"
+msgstr "Pozad\xc3\xad widgetu"
+
+msgid "Wallet link \xe2\x80\x93 text"
+msgstr "Odkaz na pen\xc4\x9b\xc5\xbeen\xc3\xadku \xe2\x80\x93 text"
+
+msgid "Wallet link \xe2\x80\x93 URL"
+msgstr "Odkaz na pen\xc4\x9b\xc5\xbeen\xc3\xadku \xe2\x80\x93 URL"
+
+msgid "Leave empty to hide the link."
+msgstr "Nech pr\xc3\xa1zdn\xc3\xa9 pro skryt\xc3\xad odkazu."
+
+msgid "How it works"
+msgstr "Jak to funguje"
+
+msgid "The widget is automatically displayed below the selected content types. For manual placement, use the shortcode:"
+msgstr "Widget se automaticky zobraz\xc3\xad pod obsahem vybran\xc3\xbdch typ\xc5\xaf \xc4\x8dl\xc3\xa1nk\xc5\xaf. Pro ru\xc4\x8dn\xc3\xad um\xc3\xadst\xc4\x9bn\xc3\xad pou\xc5\xbej shortcode:"
+
+msgid "If the shortcode is used in a post, automatic insertion will be disabled for that post."
+msgstr "Pokud je shortcode pou\xc5\xbet\xc3\xbd v \xc4\x8dl\xc3\xa1nku, automatick\xc3\xa9 vlo\xc5\xben\xc3\xad se pro tento \xc4\x8dl\xc3\xa1nek vypne."
+
+msgid "Copied!"
+msgstr "Zkop\xc3\xadrov\xc3\xa1no"
+
+msgid "Copy failed"
+msgstr "Kop\xc3\xadrov\xc3\xa1n\xc3\xad se nezda\xc5\x99ilo"
+
+msgid "Could not load payment details. Copy the Lightning address and send manually."
+msgstr "Nepoda\xc5\x99ilo se na\xc4\x8d\xc3\xadst platebn\xc3\xad \xc3\xbadaje. Zkop\xc3\xadruj Lightning adresu a po\xc5\xa1li ru\xc4\x8dn\xc4\x9b."
+
+msgid "Enter a valid amount in sats"
+msgstr "Zadej platnou \xc4\x8d\xc3\xa1stku v sats"
+
+msgid "Amount is outside the wallet's allowed range"
+msgstr "\xc4\x8c\xc3\xa1stka je mimo povolen\xc3\xbd rozsah pen\xc4\x9b\xc5\xbeen\xc3\xadky"

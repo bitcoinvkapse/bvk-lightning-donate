@@ -26,7 +26,7 @@ function bvkld_register_settings() {
 	register_setting( 'bvkld_settings_group', 'bvkld_title', array(
 		'type'              => 'string',
 		'sanitize_callback' => 'sanitize_text_field',
-		'default'           => __( 'Líbil se ti článek? Pošli satoshi ⚡', 'bvk-lightning-donate' ),
+		'default'           => __( 'Did you enjoy this article? Send some sats ⚡', 'bvk-lightning-donate' ),
 	) );
 
 	register_setting( 'bvkld_settings_group', 'bvkld_subtitle', array(
@@ -56,7 +56,7 @@ function bvkld_register_settings() {
 	register_setting( 'bvkld_settings_group', 'bvkld_wallet_link_text', array(
 		'type'              => 'string',
 		'sanitize_callback' => 'sanitize_text_field',
-		'default'           => __( 'Nemáš peněženku? Stáhni si zde', 'bvk-lightning-donate' ),
+		'default'           => __( 'No wallet? Download one here', 'bvk-lightning-donate' ),
 	) );
 
 	register_setting( 'bvkld_settings_group', 'bvkld_wallet_link_url', array(
@@ -81,7 +81,7 @@ function bvkld_sanitize_lightning_address( $value ) {
 	add_settings_error(
 		'bvkld_lightning_address',
 		'bvkld_invalid_address',
-		__( 'Neplatný formát Lightning adresy. Očekáván formát uživatel@domena.cz', 'bvk-lightning-donate' )
+		__( 'Invalid Lightning address format. Expected format: user@domain.com', 'bvk-lightning-donate' )
 	);
 	return get_option( 'bvkld_lightning_address', '' );
 }
@@ -99,7 +99,7 @@ function bvkld_sanitize_amounts( $value ) {
 		add_settings_error(
 			'bvkld_amounts',
 			'bvkld_invalid_amounts',
-			__( 'Zadej alespoň jednu platnou částku (kladné číslo).', 'bvk-lightning-donate' )
+			__( 'Enter at least one valid amount (positive number).', 'bvk-lightning-donate' )
 		);
 		return get_option( 'bvkld_amounts', '1000,5000,21000' );
 	}
@@ -155,24 +155,24 @@ function bvkld_admin_enqueue( $hook ) {
 
 function bvkld_render_settings_page() {
 	if ( ! current_user_can( 'manage_options' ) ) {
-		wp_die( esc_html__( 'Nemáš oprávnění k zobrazení této stránky.', 'bvk-lightning-donate' ) );
+		wp_die( esc_html__( 'You do not have permission to view this page.', 'bvk-lightning-donate' ) );
 	}
 
 	$enabled         = (int) get_option( 'bvkld_enabled', 0 );
 	$address         = get_option( 'bvkld_lightning_address', '' );
 	$amounts         = get_option( 'bvkld_amounts', '1000,5000,21000' );
-	$title           = get_option( 'bvkld_title', __( 'Líbil se ti článek? Pošli satoshi ⚡', 'bvk-lightning-donate' ) );
+	$title           = get_option( 'bvkld_title', __( 'Did you enjoy this article? Send some sats ⚡', 'bvk-lightning-donate' ) );
 	$subtitle        = get_option( 'bvkld_subtitle', '' );
 	$selected_pt     = (array) get_option( 'bvkld_post_types', array( 'post' ) );
 	$primary         = get_option( 'bvkld_primary_color', '#f7931a' );
 	$background      = get_option( 'bvkld_background_color', '#fdf4e3' );
-	$wallet_text     = get_option( 'bvkld_wallet_link_text', __( 'Nemáš peněženku? Stáhni si zde', 'bvk-lightning-donate' ) );
+	$wallet_text     = get_option( 'bvkld_wallet_link_text', __( 'No wallet? Download one here', 'bvk-lightning-donate' ) );
 	$wallet_url      = get_option( 'bvkld_wallet_link_url', '' );
 
 	$public_types = get_post_types( array( 'public' => true ), 'objects' );
 	?>
 	<div class="wrap">
-		<h1><?php esc_html_e( 'BVK Lightning Donate – Nastavení', 'bvk-lightning-donate' ); ?></h1>
+		<h1><?php esc_html_e( 'BVK Lightning Donate – Settings', 'bvk-lightning-donate' ); ?></h1>
 
 		<?php settings_errors(); ?>
 
@@ -181,19 +181,19 @@ function bvkld_render_settings_page() {
 
 			<table class="form-table" role="presentation">
 				<tr>
-					<th scope="row"><?php esc_html_e( 'Widget aktivní', 'bvk-lightning-donate' ); ?></th>
+					<th scope="row"><?php esc_html_e( 'Widget active', 'bvk-lightning-donate' ); ?></th>
 					<td>
 						<label>
 							<input type="checkbox" name="bvkld_enabled" value="1" <?php checked( 1, $enabled ); ?> />
-							<?php esc_html_e( 'Zobrazovat widget na webu', 'bvk-lightning-donate' ); ?>
+							<?php esc_html_e( 'Show widget on the site', 'bvk-lightning-donate' ); ?>
 						</label>
-						<p class="description"><?php esc_html_e( 'Vypnuto dokud plugin nenakonfiguruješ. Po zaškrtnutí se widget začne zobrazovat podle nastavení níže.', 'bvk-lightning-donate' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Disabled until you configure the plugin. Check this to start showing the widget according to the settings below.', 'bvk-lightning-donate' ); ?></p>
 					</td>
 				</tr>
 
 				<tr>
 					<th scope="row">
-						<label for="bvkld_lightning_address"><?php esc_html_e( 'Lightning adresa', 'bvk-lightning-donate' ); ?></label>
+						<label for="bvkld_lightning_address"><?php esc_html_e( 'Lightning address', 'bvk-lightning-donate' ); ?></label>
 					</th>
 					<td>
 						<input name="bvkld_lightning_address" id="bvkld_lightning_address" type="text"
@@ -203,7 +203,7 @@ function bvkld_render_settings_page() {
 							<?php
 							printf(
 								/* translators: %s is a link to lightningaddress.com */
-								esc_html__( 'Formát: uživatel@peněženka.cz. Co je %s?', 'bvk-lightning-donate' ),
+								esc_html__( 'Format: user@wallet.com. What is %s?', 'bvk-lightning-donate' ),
 								'<a href="https://lightningaddress.com/" target="_blank" rel="noopener">Lightning Address</a>'
 							);
 							?>
@@ -213,18 +213,18 @@ function bvkld_render_settings_page() {
 
 				<tr>
 					<th scope="row">
-						<label for="bvkld_amounts"><?php esc_html_e( 'Přednastavené částky (sats)', 'bvk-lightning-donate' ); ?></label>
+						<label for="bvkld_amounts"><?php esc_html_e( 'Preset amounts (sats)', 'bvk-lightning-donate' ); ?></label>
 					</th>
 					<td>
 						<input name="bvkld_amounts" id="bvkld_amounts" type="text"
 							value="<?php echo esc_attr( $amounts ); ?>" class="regular-text" />
-						<p class="description"><?php esc_html_e( 'Oddělené čárkou, např. 1000,5000,21000', 'bvk-lightning-donate' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Comma-separated, e.g. 1000,5000,21000', 'bvk-lightning-donate' ); ?></p>
 					</td>
 				</tr>
 
 				<tr>
 					<th scope="row">
-						<label for="bvkld_title"><?php esc_html_e( 'Nadpis widgetu', 'bvk-lightning-donate' ); ?></label>
+						<label for="bvkld_title"><?php esc_html_e( 'Widget title', 'bvk-lightning-donate' ); ?></label>
 					</th>
 					<td>
 						<input name="bvkld_title" id="bvkld_title" type="text"
@@ -234,7 +234,7 @@ function bvkld_render_settings_page() {
 
 				<tr>
 					<th scope="row">
-						<label for="bvkld_subtitle"><?php esc_html_e( 'Podtitulek', 'bvk-lightning-donate' ); ?></label>
+						<label for="bvkld_subtitle"><?php esc_html_e( 'Subtitle', 'bvk-lightning-donate' ); ?></label>
 					</th>
 					<td>
 						<textarea name="bvkld_subtitle" id="bvkld_subtitle" rows="2" class="large-text"><?php echo esc_textarea( $subtitle ); ?></textarea>
@@ -242,7 +242,7 @@ function bvkld_render_settings_page() {
 				</tr>
 
 				<tr>
-					<th scope="row"><?php esc_html_e( 'Zobrazit pod', 'bvk-lightning-donate' ); ?></th>
+					<th scope="row"><?php esc_html_e( 'Display below', 'bvk-lightning-donate' ); ?></th>
 					<td>
 						<fieldset>
 							<?php foreach ( $public_types as $pt ) : ?>
@@ -255,13 +255,13 @@ function bvkld_render_settings_page() {
 								</label>
 							<?php endforeach; ?>
 						</fieldset>
-						<p class="description"><?php esc_html_e( 'Typ obsahu, pod který se widget automaticky přidá.', 'bvk-lightning-donate' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Content type below which the widget will be automatically added.', 'bvk-lightning-donate' ); ?></p>
 					</td>
 				</tr>
 
 				<tr>
 					<th scope="row">
-						<label for="bvkld_primary_color"><?php esc_html_e( 'Primární barva', 'bvk-lightning-donate' ); ?></label>
+						<label for="bvkld_primary_color"><?php esc_html_e( 'Primary color', 'bvk-lightning-donate' ); ?></label>
 					</th>
 					<td>
 						<input name="bvkld_primary_color" id="bvkld_primary_color" type="text"
@@ -272,7 +272,7 @@ function bvkld_render_settings_page() {
 
 				<tr>
 					<th scope="row">
-						<label for="bvkld_background_color"><?php esc_html_e( 'Pozadí widgetu', 'bvk-lightning-donate' ); ?></label>
+						<label for="bvkld_background_color"><?php esc_html_e( 'Widget background', 'bvk-lightning-donate' ); ?></label>
 					</th>
 					<td>
 						<input name="bvkld_background_color" id="bvkld_background_color" type="text"
@@ -283,7 +283,7 @@ function bvkld_render_settings_page() {
 
 				<tr>
 					<th scope="row">
-						<label for="bvkld_wallet_link_text"><?php esc_html_e( 'Odkaz na peněženku – text', 'bvk-lightning-donate' ); ?></label>
+						<label for="bvkld_wallet_link_text"><?php esc_html_e( 'Wallet link – text', 'bvk-lightning-donate' ); ?></label>
 					</th>
 					<td>
 						<input name="bvkld_wallet_link_text" id="bvkld_wallet_link_text" type="text"
@@ -293,13 +293,13 @@ function bvkld_render_settings_page() {
 
 				<tr>
 					<th scope="row">
-						<label for="bvkld_wallet_link_url"><?php esc_html_e( 'Odkaz na peněženku – URL', 'bvk-lightning-donate' ); ?></label>
+						<label for="bvkld_wallet_link_url"><?php esc_html_e( 'Wallet link – URL', 'bvk-lightning-donate' ); ?></label>
 					</th>
 					<td>
 						<input name="bvkld_wallet_link_url" id="bvkld_wallet_link_url" type="url"
 							value="<?php echo esc_attr( $wallet_url ); ?>" class="regular-text"
 							placeholder="https://www.walletofsatoshi.com/" />
-						<p class="description"><?php esc_html_e( 'Nech prázdné pro skrytí odkazu.', 'bvk-lightning-donate' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Leave empty to hide the link.', 'bvk-lightning-donate' ); ?></p>
 					</td>
 				</tr>
 			</table>
@@ -307,10 +307,10 @@ function bvkld_render_settings_page() {
 			<?php submit_button(); ?>
 		</form>
 
-		<h2><?php esc_html_e( 'Jak to funguje', 'bvk-lightning-donate' ); ?></h2>
-		<p><?php esc_html_e( 'Widget se automaticky zobrazí pod obsahem vybraných typů článků. Pro ruční umístění použij shortcode:', 'bvk-lightning-donate' ); ?></p>
+		<h2><?php esc_html_e( 'How it works', 'bvk-lightning-donate' ); ?></h2>
+		<p><?php esc_html_e( 'The widget is automatically displayed below the selected content types. For manual placement, use the shortcode:', 'bvk-lightning-donate' ); ?></p>
 		<p><code>[bvk-lightning-donate]</code></p>
-		<p><?php esc_html_e( 'Pokud je shortcode použitý v článku, automatické vložení se pro tento článek vypne.', 'bvk-lightning-donate' ); ?></p>
+		<p><?php esc_html_e( 'If the shortcode is used in a post, automatic insertion will be disabled for that post.', 'bvk-lightning-donate' ); ?></p>
 	</div>
 	<?php
 }
